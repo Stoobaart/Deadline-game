@@ -6,7 +6,7 @@
 
 body {
 	background-color: black;
-	height: 1200px;
+	height: 600px;
 	font-family: 'VT323', monospace;
 }
 /*=====================START=SCREEN========================*/
@@ -112,11 +112,15 @@ div#p1Sprite {
 }
 div#p2Sprite {
 	margin-top: 240px;
-	background-image: url("../images/Z1-right.png");
+	background-image: url("../images/Z2-left.png");
 	z-index: 2;
 }
 
-
+.counter {
+	color: white;
+    height: 200px;
+    border: 2px solid white;
+}
 
 
 
