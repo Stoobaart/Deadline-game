@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Track Game</title>
+	<title>Deadline</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -9,6 +9,13 @@
 	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 </head>
 <body>
+	<audio loop id="theme">
+		<source src="sounds/203529__zagi2__weird-pulsing-3.wav" type="audio/wav">
+	</audio>
+	<audio loop id="game">
+		<source src="sounds/23069__blacklizard77__concrete-fields.mp3" type="audio/mp3">
+	</audio>
+
 	<header id="startScreen">
 		<h1 id="title">DEADLINE</h1>
 		<img id="mainImage" src="https://coresites-cdn.factorymedia.com/mpora_new/wp-content/uploads/2016/05/zombiehead.jpg">
@@ -16,6 +23,20 @@
 	</header>
 
 	<main id="gameArea">
+
+		<section id="gameScreen">
+			<div id="levelImage"></div>
+			<div id="p1Sprite" class="sprite"></div>
+			<div id="p2Sprite" class="sprite"></div>
+			<div id="v1Sprite" class="sprite"></div>
+			<div id="topBar">
+				<div id="p1StamBar">P1 Stamina: <p id="p1Stamina" data-count="60">60</p></div>
+				<div id="timer"></div>
+				<div id="p2StamBar">P2 Stamina: <p id="p2Stamina" data-count="60">60</p></div>
+			</div>
+			
+		</section>
+
 		<section id="leftPanel">
 			<ul id="instrs">
 				<li><h4>Zombie 1 controls</h4></li>
@@ -25,17 +46,6 @@
 				<li>"D"</li>
 			</ul>
 		</section> 
-
-		<section id="gameScreen">
-			<div id="p1Sprite" class="sprite"></div>
-			<div id="p2Sprite" class="sprite"></div>
-			<div id="topBar">
-				<div id="p1StamBar">P1 Stamina: <p id="p1Stamina" data-count="60">60</p></div>
-				<div id="timer"></div>
-				<div id="p2StamBar">P2 Stamina: <p id="p2Stamina" data-count="60">60</p></div>
-			</div>
-			
-		</section>
 
 		<section id="rightPanel">
 			<ul id="instrs">
