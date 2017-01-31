@@ -10,6 +10,7 @@ $(function() {
 				$("#gameArea").show();
 				$("#theme").get(0).pause();
 				$("#game").get(0).play();
+				$("#ambience").get(0).play();
 			}
 		})
 // =======================================GLOBAL=VARIABLES===================================================
