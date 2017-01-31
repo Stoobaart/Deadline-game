@@ -48,6 +48,7 @@ $(function() {
 				winCheck();
 			} else if (e.keyCode === 87 && (bitePoint(checkPosition)) === 1) {
 				console.log("Bitten by z1!");
+				$("#scream").get(0).play();
 				$("#v1Sprite").css('animation', 'movingBitten 500ms infinite');
 				$("#p1Stamina").html(parseInt(p1Stamina.innerHTML) +50);
 			}
@@ -76,6 +77,9 @@ $(function() {
 				winCheck();
 			} else if (e.keyCode === 73 && (bitePoint(checkPosition)) === 2) {
 				console.log("Bitten by z2!");
+				$("#scream").get(0).play();
+				$("#v1Sprite").css('animation', 'movingBitten 500ms infinite');
+				$("#p1Stamina").html(parseInt(p1Stamina.innerHTML) +50);
 			}
 			checkPosition();
 		});
