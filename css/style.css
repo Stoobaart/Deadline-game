@@ -10,6 +10,14 @@
 	75% { background-image: url("../images/V1-left2.png"); }
 	100% { background-image: url("../images/V1-left.png"); }
 }
+@keyframes movingBitten {
+	0% { background-image: url("../images/vZom-left.png"); }
+	20% { background-image: url("../images/vZom-middle.png"); }
+	40% { background-image: url("../images/vZom-right.png"); }
+	60% { background-image: url("../images/vZom-middle.png"); }
+	80% { background-image: url("../images/vZom-left.png"); }
+	100% { background-image: url("../images/vZom-middle.png"); }
+}
 
 body {
 	background-color: black;
