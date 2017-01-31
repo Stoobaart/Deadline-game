@@ -1,8 +1,16 @@
 @keyframes glowing {
-  0% { color: #b11114; box-shadow: 0 0 3px #b11114; }
-  50% { color: white; box-shadow: 0 0 10px white; }
-  100% { color: #b11114; box-shadow: 0 0 3px #b11114; }
+	0% { color: #b11114; box-shadow: 0 0 3px #b11114; }
+	50% { color: white; box-shadow: 0 0 10px white; }
+	100% { color: #b11114; box-shadow: 0 0 3px #b11114; }
 }
+@keyframes moving {
+	0% { background-image: url("../images/V1-left.png"); }
+	25% { background-image: url("../images/V1-left2.png"); }
+	50% { background-image: url("../images/V1-left3.png"); }
+	75% { background-image: url("../images/V1-left2.png"); }
+	100% { background-image: url("../images/V1-left.png"); }
+}
+
 body {
 	background-color: black;
 	height: 600px;
@@ -123,16 +131,11 @@ div#p2Sprite {
 }
 div#v1Sprite {
 	margin-top: 255px;
-	margin-left: 750px;
-	/*background-image: url("../images/V1-left.png");*/
+	margin-left: 1400px;
+	animation: moving 500ms infinite;
+	transition: all 0.3s ease 0s;
 	z-index: 3;
 }
-/*.counter {
-	color: white;
-    height: 200px;
-    border: 2px solid white;
-}*/
-
 
 /*=====================RESPONSIVENESS==============================*/
 
