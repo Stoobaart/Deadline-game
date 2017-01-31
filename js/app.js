@@ -11,6 +11,8 @@ $(function() {
 	var p2left = 1;
 	var p2right = 1;
 	p2listenForKeys();
+	var v1Position = 0;
+	console.log(v1Position);
 
 	$(document).keydown(function(e) {
 		if (e.keyCode === 32) {
@@ -118,6 +120,20 @@ $(function() {
 			p2right = 1;
 		}
 	}
+
+	do {
+		if (Math.abs(v1Position % 2) == 1) {
+			$("#v1Sprite").animate({"left": "-=2px"}, 100).css('background-image','url(images/Z2-left.png)');
+			v1Position +=1;
+		} else if (v1Position % 2 == 0) {
+			$("#v1Sprite").animate({"left": "-=2px"}, 100).css('background-image','url(images/V1-left.png)');
+			v1Position +=1;
+			console.log(v1Position);
+		}
+	}
+	while (v1Position < 81); //{ Add && (p1Position > 50 || p2Position > 50) }
+
+
 	function winCheck() {
 		if (p1Position >= 350) {
 			stopGame();
@@ -133,4 +149,5 @@ $(function() {
 		p2left = 0;
 		p2right = 0;
 	}
+
 });
