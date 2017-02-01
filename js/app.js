@@ -28,6 +28,7 @@ $(function() {
 	var p2 = $("#p2Sprite");
 	var p2Position = p2.offset();
 	var v1Bitten = false;
+	var lastPosition = 0;
 	var sprites = [];
 // =======================================GAME=LOGIC=======================================================
 
@@ -38,7 +39,7 @@ $(function() {
 			if (e.keyCode === 65 && p1left == 1 && (parseInt(p1Stamina.innerHTML)) > 1) {
 				p1left = 0;
 				p1right = 1;
-				$("#levelImage").animate({"left": "-=2px"}, 100);
+				$("#levelImage").animate({"left": "-=3px"}, 100);
 				$("#p2Sprite").animate({"left": "-=2px"}, 100);
 				$(".vSprite").animate({"left": "-=40px"}, 50);
 				$("#p1Sprite").animate({"left": "+=2px"}, 100).css('background-image','url(images/Z1-left.png)');
@@ -52,6 +53,7 @@ $(function() {
 				winCheck();
 			} else if (e.keyCode === 87 && (bitePoint()) === 1 && (sprites[0].alive)) {
 				v1bitten();
+				$("#p1Sprite").animate({"left": "+=100px"}, 100);
 			}
 			checkPosition();
 		});
@@ -72,7 +74,7 @@ $(function() {
 			if (e.keyCode === 74 && p2left == 1 && (parseInt(p2Stamina.innerHTML)) > 1) {
 				p2left = 0;
 				p2right = 1;
-				$("#levelImage").animate({"left": "-=2px"}, 100);
+				$("#levelImage").animate({"left": "-=3px"}, 100);
 				$("#p1Sprite").animate({"left": "-=2px"}, 100);
 				$(".vSprite").animate({"left": "-=40px"}, 50);
 				$("#p2Sprite").animate({"left": "+=2px"}, 100).css('background-image','url(images/Z2-left.png)');
@@ -83,10 +85,11 @@ $(function() {
 				p2left = 1;
 				$("#p2Sprite").animate({"left": "+=2px"}, 100).css('background-image','url(images/Z2-right.png)');
 				winCheck();
-			} else if (e.keyCode === 73 && (bitePoint()) === 2 && (($(".vSprite").attr("class").split(" ")[1]) === "alive")) {
-				v1bitten($(".vSprite"));
+			} else if (e.keyCode === 73 && (bitePoint()) === 2 && (sprites[0].alive)) {
+				v1bitten();
+				$("#p2Sprite").animate({"left": "+=100px"}, 100);
 			}
-			checkPosition();
+		checkPosition();
 		});
 	}
 //===========================================BITE=LOGIC======================================================
@@ -101,10 +104,6 @@ $(function() {
 	}
 
 	function checkPosition() { //find the positions of all sprites for bitePoint function
-		var v1 = $("#v1Sprite");
-		v1Position = v1.offset();
-		var v2 = $("v2Sprite");
-		v2Position = v2.offset();
 		var p1 = $("#p1Sprite");
 		p1Position = p1.offset();
 		var p2 = $("#p2Sprite");
@@ -123,13 +122,24 @@ $(function() {
 	    $(".vSprite").each(function(index) {
 	    	var $this = $(this);
 	       if (($this.position().left) < -1500) {
+	       		spriteGenerator();
 	           	$this.remove();
-	           	$("#gameScreen").append('<div id="v1Sprite" class="vSprite alive" style="margin-top: 150px"></div>');
-	           	$("#gameScreen").append('<div id="v2Sprite" class="vSprite alive" style="margin-left: 1500px; margin-top: 150px"></div>');
-	       } 
+	           	
+	       } //loop through and generate these dynamically.
 	    });
 	}
 	var interval = self.setInterval(function(){onOrOffScreen()},2000);
+
+	function spriteGenerator() {
+		for (var i = 0; i < 1; i++) {
+			var lastSprite = $("#v1Sprite");
+			var lastPosition = parseInt(lastSprite.css("margin-left")); //grabbing last known start position.
+			var newPosition = lastPosition + Math.floor(Math.random()*300);
+			var newPosition2 = lastPosition + Math.floor(Math.random()*300);
+			$("#gameScreen").append($("<div id='v1Sprite' class='vSprite alive' style='margin-left:" + newPosition + "px; margin-top: 150px'></div>"));
+			$("#gameScreen").append($("<div id='v1Sprite' class='vSprite alive' style='margin-left:" + newPosition2 + "px; margin-top: 150px'></div>"));
+		}    	
+	}
 //===========================================STAMINA=BAR=LOGIC================================================
 	function p1fillStaminaBar() {
 		$('#p1Stamina').each(function() {
@@ -170,10 +180,10 @@ $(function() {
 	}
 //===========================================WIN=LOGIC===================================================
 	function winCheck() {
-		if (p1Position >= 500) {
+		if (p1Position.left >= 735) {
 			stopGame();
 			alert("Zombie 1 delivers the goods! His plans for infection growth will be actioned on Monday!");
-		} else if (p2Position >= 350) {
+		} else if (p2Position.left >= 735) {
 			stopGame();
 			alert("Zombie 2 delivers the goods! His plans for infection growth will be actioned on Monday!");
 		}
