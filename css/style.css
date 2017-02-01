@@ -89,10 +89,12 @@ section#gameScreen {
 	z-index: -1;
 }
 #winMessageArea {
+	text-align: center;
+    padding-top: 60px;
 	border: 2px solid red;
 	border-radius: 5px;
 	margin: 100px auto 0 358px;
-	height: 200px;
+	height: 100px;
 	width: 300px;
 	background-color: beige;
 	position: absolute;
