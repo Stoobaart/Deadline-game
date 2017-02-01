@@ -81,9 +81,9 @@ section#gameScreen {
 }
 #levelImage {
 	height: 500px;
-	width: 150%;
+	width: 2000px;
 	background-image: url("../images/levelBg.png");
-	background-size: 800px 500px;
+	background-size: 1800px 500px;
 	background-image: no-repeat;
 	position: absolute;
 	z-index: -1;
@@ -140,7 +140,6 @@ div#p2Sprite {
 }
 div#v1Sprite, div#v2Sprite {
 	margin-top: 255px;
-	margin-left: 1400px;
 	animation: moving 500ms infinite;
 	transition: all 0.3s ease 0s;
 	z-index: 3;
