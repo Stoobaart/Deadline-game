@@ -21,6 +21,8 @@ The rules of the game are simple -
 
 **===================================================Additional===================================================**
 
+This game was built using HTML, CSS, Javascript and Jquery
+
 No actual humans were hurt in the making of this game
 
 **=====================================================CREDITS====================================================**
