@@ -181,18 +181,22 @@ $(function() {
 //===========================================WIN=LOGIC===================================================
 	function winCheck() {
 		if (p1Position.left >= 735) {
+			$("#winnerMsg").html("Zombie 1 delivers the goods! His plans for infection growth will be actioned on Monday!");
 			stopGame();
-			alert("Zombie 1 delivers the goods! His plans for infection growth will be actioned on Monday!");
 		} else if (p2Position.left >= 735) {
+			$("#winnerMsg").html("Zombie 2 delivers the goods! His plans for infection growth will be actioned on Monday!");
 			stopGame();
-			alert("Zombie 2 delivers the goods! His plans for infection growth will be actioned on Monday!");
 		}
 	}
+
 	function stopGame() {
 		p1left = 0;
 		p1right = 0;
 		p2left = 0;
 		p2right = 0;
+		$("#winMessageArea").fadeIn( 3000, function() {
+			$("#winnerMsg").fadeIn (100 );
+		});
 	}
 });
 
