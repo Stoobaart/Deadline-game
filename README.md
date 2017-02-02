@@ -31,6 +31,13 @@ I would like to take this opportunity to thank my family, Doriana, Gurpal, Chris
 
 I would also like to thank Freesound.org (https://www.freesound.org) and all of it's contributers for providing me with an amazing resource for sounds and music. Thank you!
 
-And also OpenGameArt.org for providing me with the inspiration for the art on this game's sprites specifically the user "Chipmunk" (http://opengameart.org/users/chipmunk) and a background image by the user "Pethero"
+And also OpenGameArt.org for providing me with the inspiration for the art on this game's sprites specifically the user "Chipmunk" (http://opengameart.org/users/chipmunk) and a background image by the user "nkorth" (http://opengameart.org/content/pet-hero-backgrounds).
+
+
+
+
+
+											Thank you, and enjoy!!
+											Stu
 
 
