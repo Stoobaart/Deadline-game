@@ -119,7 +119,7 @@ $(function() {
 			} 
 	}
 
-	function onOrOffScreen() {
+	function onOrOffScreen() { //when the Victim sprites go off screen run the function to generate new sprites
 	    $(".vSprite").each(function(index) {
 	    	var $this = $(this);
 	       if (($this.position().left) < -1600) {
@@ -131,7 +131,7 @@ $(function() {
 	}
 	var interval = self.setInterval(function(){onOrOffScreen()},2000);
 
-	function spriteGenerator() {
+	function spriteGenerator() { //function to generate new sprites at random spacing apart distances
 		for (var i = 0; i < 1; i++) {
 			var lastSprite = $("#v1Sprite");
 			var lastPosition = parseInt(lastSprite.css("margin-left")); //grabbing last known start position.
@@ -143,7 +143,7 @@ $(function() {
 	}
 //===========================================STAMINA=BAR=LOGIC================================================
 	function fillStaminaBar(player) {
-		var element = player === 1 ? $('#p1Stamina') : $('#p2Stamina');
+		var element = player === 1 ? $('#p1Stamina') : $('#p2Stamina'); //Ternary operators to dry up code and find which stamina bar to fill for which player
 		element.each(function() {
 			var $this = $(this);
 		  	countTo = $this.attr('data-count');
@@ -184,5 +184,3 @@ $(function() {
 		$("#restart").toggle();
 	}
 });
-
-
