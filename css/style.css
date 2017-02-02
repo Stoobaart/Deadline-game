@@ -155,7 +155,7 @@ div#v1Sprite, div#v2Sprite {
     padding: 60px 40px;
 	border: 2px solid red;
 	border-radius: 5px;
-	margin: 100px auto 0 358px;
+	margin: 100px 25%;
 	height: 100px;
 	width: 300px;
 	background-color: beige;
@@ -167,7 +167,12 @@ div#v1Sprite, div#v2Sprite {
 
 #winnerMsg {
 	display: none;
-	font-size: ;
+}
+
+#restart {
+	background-color: beige;
+	font-family: 'VT323', monospace;
+	color: red;
 }
 /*=====================RESPONSIVENESS==============================*/
 
