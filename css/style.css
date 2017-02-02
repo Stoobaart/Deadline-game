@@ -88,18 +88,6 @@ section#gameScreen {
 	position: absolute;
 	z-index: -1;
 }
-#winMessageArea {
-	text-align: center;
-    padding-top: 60px;
-	border: 2px solid red;
-	border-radius: 5px;
-	margin: 100px auto 0 358px;
-	height: 100px;
-	width: 300px;
-	background-color: beige;
-	position: absolute;
-	z-index: 5;
-}
 /*===========================STAMINA=BARS=======================*/
 div#topBar {
 	height: 100px;
@@ -156,7 +144,26 @@ div#v1Sprite, div#v2Sprite {
 	transition: all 0.3s ease 0s;
 	z-index: 3;
 }
+/*=====================WINNER=MESSAGES=============================*/
+#winMessageArea {
+	text-align: center;
+    padding: 60px 40px;
+	border: 2px solid red;
+	border-radius: 5px;
+	margin: 100px auto 0 358px;
+	height: 100px;
+	width: 300px;
+	background-color: beige;
+	position: absolute;
+	z-index: 5;
+	display: none;
+	font-size: 25px;
+}
 
+#winnerMsg {
+	display: none;
+	font-size: ;
+}
 /*=====================RESPONSIVENESS==============================*/
 
 /*@media screen and (max-width: 400px){
