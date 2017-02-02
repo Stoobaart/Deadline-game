@@ -180,10 +180,10 @@ $(function() {
 	}
 //===========================================WIN=LOGIC===================================================
 	function winCheck() {
-		if (p1Position.left >= 735) {
+		if (p1Position.left >= 750) {
 			$("#winnerMsg").html("Zombie 1 delivers the goods! His plans for infection growth will be actioned on Monday!");
 			stopGame();
-		} else if (p2Position.left >= 735) {
+		} else if (p2Position.left >= 750) {
 			$("#winnerMsg").html("Zombie 2 delivers the goods! His plans for infection growth will be actioned on Monday!");
 			stopGame();
 		}
