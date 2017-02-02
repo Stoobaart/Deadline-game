@@ -65,11 +65,15 @@ li {
 section {
 	display: inline-block;
 }
-section#leftPanel {
-	float: left;
+section#rightPanel {
+	float: right;
+	font-size: 20px;
+	padding-right: 200px;
 }
 section#leftPanel {
-	float: right;
+	float: left;
+	font-size: 20px;
+	padding: 0 200px 10px;
 }
 
 section#gameScreen {
@@ -78,6 +82,7 @@ section#gameScreen {
 	height: 500px;
 	margin: 50px auto;
 	border: 1px solid white;
+	margin-top: -1px;
 }
 #levelImage {
 	height: 500px;
