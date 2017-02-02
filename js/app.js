@@ -1,18 +1,18 @@
 $(function() {
 // =======================================START=SCREEN=======================================================
-	window.onload = function() {
-		$("#theme").get(0).play();
-	};
-		$("#gameArea").hide();
-			$(document).keydown(function(e) {
-			if (e.keyCode === 32) { //When space bar is pressed, do this..
-				$("#startScreen").slideUp();
-				$("#gameArea").show();
-				$("#theme").get(0).pause();
-				$("#game").get(0).play();
-				$("#ambience").get(0).play();
-			}
-		})
+	$("#theme").get(0).play();
+	$("#gameArea").hide();
+	$("#restart").hide();
+
+	$(document).keydown(function(e) {
+		if (e.keyCode === 32) { //When space bar is pressed, do this..
+			$("#startScreen").slideUp();
+			$("#gameArea").show();
+			$("#theme").get(0).pause();
+			$("#game").get(0).play();
+			$("#ambience").get(0).play();
+		}
+	})
 // =======================================GLOBAL=VARIABLES===================================================
 	var p1left = 1;
 	var p1right = 1;
@@ -44,7 +44,7 @@ $(function() {
 				$(".vSprite").animate({"left": "-=40px"}, 50);
 				$("#p1Sprite").animate({"left": "+=1px"}, 100).css('background-image','url(images/Z1-left.png)');
 				$("#p1Stamina").html(parseInt(p1Stamina.innerHTML) -2);
-				p1fillStaminaBar();
+				fillStaminaBar(1);
 			} else if (e.keyCode === 68 && p1right == 1 && (parseInt(p1Stamina.innerHTML)) > 1) {
 				p1right = 0;
 				p1left = 1;
@@ -71,6 +71,7 @@ $(function() {
 
 	function p2listenForKeys() { //key pressing event listeners for player two
 		$(document).keydown(function(e){
+			refreshSprites();
 			if (e.keyCode === 74 && p2left == 1 && (parseInt(p2Stamina.innerHTML)) > 1) {
 				p2left = 0;
 				p2right = 1;
@@ -79,7 +80,7 @@ $(function() {
 				$(".vSprite").animate({"left": "-=40px"}, 50);
 				$("#p2Sprite").animate({"left": "+=1px"}, 100).css('background-image','url(images/Z2-left.png)');
 				$("#p2Stamina").html(parseInt(p2Stamina.innerHTML) -2);
-				p2fillStaminaBar();
+				fillStaminaBar(2);
 			} else if (e.keyCode === 76 && p2right == 1 && (parseInt(p2Stamina.innerHTML)) > 1) {
 				p2right = 0;
 				p2left = 1;
@@ -89,7 +90,7 @@ $(function() {
 				v1bitten();
 				$("#p2Sprite").animate({"left": "+=100px"}, 100);
 			}
-		checkPosition();
+			checkPosition();
 		});
 	}
 //===========================================BITE=LOGIC======================================================
@@ -141,8 +142,9 @@ $(function() {
 		}    	
 	}
 //===========================================STAMINA=BAR=LOGIC================================================
-	function p1fillStaminaBar() {
-		$('#p1Stamina').each(function() {
+	function fillStaminaBar(player) {
+		var element = player === 1 ? $('#p1Stamina') : $('#p2Stamina');
+		element.each(function() {
 			var $this = $(this);
 		  	countTo = $this.attr('data-count');
 		  	$({ countNum: $this.text()}).animate({ countNum: countTo },
@@ -159,32 +161,13 @@ $(function() {
 		  	);  
 		});
 	}
-
-	function p2fillStaminaBar() {
-		$('#p2Stamina').each(function() {
-			var $this = $(this);
-		  	countTo = $this.attr('data-count');
-		  	$({ countNum: $this.text()}).animate({ countNum: countTo },
-		  		{
-		  			duration: 8000,
-		    		easing:'linear',
-				    step: function() {
-				      $this.text(Math.floor(this.countNum));
-				    },
-				    complete: function() {
-				      $this.text(this.countNum);
-				    }
-		  		}
-		  	);  
-		});
-	}
 //===========================================WIN=LOGIC===================================================
 	function winCheck() {
-		if (p1Position.left >= 700) {
+		if (p1Position.left >= 650) {
 			$("#winnerMsg").html("Zombie 1 delivers the goods! His plans for infection growth will be actioned on Monday!");
 			console.log(p1Position.left)
 			stopGame();
-		} else if (p2Position.left >= 700) {
+		} else if (p2Position.left >= 650) {
 			$("#winnerMsg").html("Zombie 2 delivers the goods! His plans for infection growth will be actioned on Monday!");
 			stopGame();
 		}
@@ -198,6 +181,7 @@ $(function() {
 		$("#winMessageArea").fadeIn( 3000, function() {
 			$("#winnerMsg").fadeIn (100 );
 		});
+		$("#restart").toggle();
 	}
 });
 
