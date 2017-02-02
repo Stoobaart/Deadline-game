@@ -35,7 +35,6 @@ $(function() {
 	function p1listenForKeys() { //key pressing event listeners for player one
 		$(document).keydown(function(e) {
 			refreshSprites();
-			console.log(sprites);
 			if (e.keyCode === 65 && p1left == 1 && (parseInt(p1Stamina.innerHTML)) > 1) {
 				p1left = 0;
 				p1right = 1;
@@ -61,7 +60,6 @@ $(function() {
 
 	function refreshSprites() {
 		sprites = [...$(".vSprite.alive")].map(function(sprite) {
-			console.log(sprite);
 			return {
 				offset: $(sprite).offset().left,
 				alive: ($(sprite).attr("class").split(" ")[1] === "alive")
@@ -165,7 +163,6 @@ $(function() {
 	function winCheck() {
 		if (p1Position.left >= 650) {
 			$("#winnerMsg").html("Zombie 1 delivers the goods! His plans for infection growth will be actioned on Monday!");
-			console.log(p1Position.left)
 			stopGame();
 		} else if (p2Position.left >= 650) {
 			$("#winnerMsg").html("Zombie 2 delivers the goods! His plans for infection growth will be actioned on Monday!");
