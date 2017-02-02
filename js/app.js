@@ -42,13 +42,13 @@ $(function() {
 				$("#levelImage").animate({"left": "-=3px"}, 100);
 				$("#p2Sprite").animate({"left": "-=2px"}, 100);
 				$(".vSprite").animate({"left": "-=40px"}, 50);
-				$("#p1Sprite").animate({"left": "+=2px"}, 100).css('background-image','url(images/Z1-left.png)');
+				$("#p1Sprite").animate({"left": "+=1px"}, 100).css('background-image','url(images/Z1-left.png)');
 				$("#p1Stamina").html(parseInt(p1Stamina.innerHTML) -2);
 				p1fillStaminaBar();
 			} else if (e.keyCode === 68 && p1right == 1 && (parseInt(p1Stamina.innerHTML)) > 1) {
 				p1right = 0;
 				p1left = 1;
-				$("#p1Sprite").animate({"left": "+=2px"}, 100).css('background-image','url(images/Z1-right.png)');
+				$("#p1Sprite").animate({"left": "+=1px"}, 100).css('background-image','url(images/Z1-right.png)');
 				onOrOffScreen();
 				winCheck();
 			} else if (e.keyCode === 87 && (bitePoint()) === 1 && (sprites[0].alive)) {
@@ -77,13 +77,13 @@ $(function() {
 				$("#levelImage").animate({"left": "-=3px"}, 100);
 				$("#p1Sprite").animate({"left": "-=2px"}, 100);
 				$(".vSprite").animate({"left": "-=40px"}, 50);
-				$("#p2Sprite").animate({"left": "+=2px"}, 100).css('background-image','url(images/Z2-left.png)');
+				$("#p2Sprite").animate({"left": "+=1px"}, 100).css('background-image','url(images/Z2-left.png)');
 				$("#p2Stamina").html(parseInt(p2Stamina.innerHTML) -2);
 				p2fillStaminaBar();
 			} else if (e.keyCode === 76 && p2right == 1 && (parseInt(p2Stamina.innerHTML)) > 1) {
 				p2right = 0;
 				p2left = 1;
-				$("#p2Sprite").animate({"left": "+=2px"}, 100).css('background-image','url(images/Z2-right.png)');
+				$("#p2Sprite").animate({"left": "+=1px"}, 100).css('background-image','url(images/Z2-right.png)');
 				winCheck();
 			} else if (e.keyCode === 73 && (bitePoint()) === 2 && (sprites[0].alive)) {
 				v1bitten();
@@ -121,7 +121,7 @@ $(function() {
 	function onOrOffScreen() {
 	    $(".vSprite").each(function(index) {
 	    	var $this = $(this);
-	       if (($this.position().left) < -1500) {
+	       if (($this.position().left) < -1600) {
 	       		spriteGenerator();
 	           	$this.remove();
 	           	
@@ -180,10 +180,11 @@ $(function() {
 	}
 //===========================================WIN=LOGIC===================================================
 	function winCheck() {
-		if (p1Position.left >= 800) {
+		if (p1Position.left >= 700) {
 			$("#winnerMsg").html("Zombie 1 delivers the goods! His plans for infection growth will be actioned on Monday!");
+			console.log(p1Position.left)
 			stopGame();
-		} else if (p2Position.left >= 800) {
+		} else if (p2Position.left >= 700) {
 			$("#winnerMsg").html("Zombie 2 delivers the goods! His plans for infection growth will be actioned on Monday!");
 			stopGame();
 		}
